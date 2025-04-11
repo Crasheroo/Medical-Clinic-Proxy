@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>Mecial-Clinic-Proxy</artifactId>
+	<artifactId>Medical-Clinic-Proxy</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Mecial-Clinic-Proxy</name>
-	<description>Mecial Clinic Proxy</description>
+	<name>Medical-Clinic-Proxy</name>
+	<description>Medical Clinic Proxy</description>
 	<url/>
 	<licenses>
 		<license/>

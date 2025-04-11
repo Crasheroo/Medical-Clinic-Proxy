@@ -1,4 +1,4 @@
-package com.example.Mecial_Clinic_Proxy.dto;
+package com.example.Medical_Clinic_Proxy.dto;
 
 import java.util.List;
 

@@ -1,16 +1,17 @@
 services:
-  medical-clinic:
-    build:
-      context: .
-      dockerfile: Dockerfile
+  medical-clinic-proxy:
+    build: .
     ports:
-      - "8080:8080"
+      - "8081:8081"
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/medical_clinic
+      SERVER_PORT: 8081
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/medicalclinic_proxy
       SPRING_DATASOURCE_USERNAME: postgres
       SPRING_DATASOURCE_PASSWORD: postgres
     depends_on:
       - db
+    networks:
+      - medicalclinic-net
 
   db:
     image: postgres
@@ -19,9 +20,14 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
     ports:
-      - "5432:5432"
+      - "5433:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    networks:
+      - medicalclinic-net
 
 volumes:
   postgres_data:
+
+networks:
+  medicalclinic-net:

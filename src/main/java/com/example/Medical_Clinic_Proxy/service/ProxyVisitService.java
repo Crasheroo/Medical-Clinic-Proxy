@@ -1,7 +1,7 @@
-package com.example.Mecial_Clinic_Proxy.service;
+package com.example.Medical_Clinic_Proxy.service;
 
-import com.example.Mecial_Clinic_Proxy.dto.Visit;
-import com.example.Mecial_Clinic_Proxy.feign.VisitClient;
+import com.example.Medical_Clinic_Proxy.dto.Visit;
+import com.example.Medical_Clinic_Proxy.feign.VisitClient;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +18,7 @@ public class ProxyVisitService {
     }
 
     public List<Visit> getDoctorVisit(Long doctorId) {
-        return visitClient.getAvailableByDoctor(doctorId);
+        return visitClient.getDoctorAvailableVisits(doctorId);
     }
 
     public List<Visit> getVisitsBySpecialtyAndDay(String specialty, LocalDateTime date) {
