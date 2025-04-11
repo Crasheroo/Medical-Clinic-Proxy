@@ -31,3 +31,4 @@ volumes:
 
 networks:
   medicalclinic-net:
+    external: true

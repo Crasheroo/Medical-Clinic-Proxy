@@ -16,7 +16,7 @@ public class VisitProxyController {
 
     @GetMapping("/my-visits")
     public List<Visit> getMyVisits(@RequestParam("patientEmail") String patientEmail) {
-        return proxyVisitService.getPatientsVisit(patientEmail);
+        return proxyVisitService.getVisitsByPatient(patientEmail);
     }
 
     @GetMapping("/doctor/{doctorId}/available")
@@ -29,5 +29,10 @@ public class VisitProxyController {
             @RequestParam String specialty,
             @RequestParam LocalDateTime date) {
         return proxyVisitService.getVisitsBySpecialtyAndDay(specialty, date);
+    }
+
+    @PostMapping("/{id}/reserve")
+    public Visit reserveVisit(@PathVariable Long id, @RequestParam String patientEmail) {
+        return proxyVisitService.reserveVisit(id, patientEmail);
     }
 }

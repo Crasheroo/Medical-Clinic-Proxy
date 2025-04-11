@@ -7,14 +7,17 @@ import org.springframework.web.bind.annotation.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
-@FeignClient(value = "visit",  url = "http://localhost:8080")
+@FeignClient(value = "medical-clinic-visits", url = "http://localhost:8080/visits")
 public interface VisitClient {
-    @RequestMapping(method = RequestMethod.GET, value = "/visits/my-visits")
-    List<Visit> getMyVisits(@RequestParam("patientEmail") String patientEmail);
+    @GetMapping("/my-visits")
+    List<Visit> getVisitsByPatient(@RequestParam("patientEmail") String patientEmail);
 
-    @RequestMapping(method = RequestMethod.GET, value = "/visits/doctor/{doctorId}/available")
+    @GetMapping("/doctor/{doctorId}/available")
     List<Visit> getDoctorAvailableVisits(@PathVariable("doctorId") Long doctorId);
 
-    @RequestMapping(method = RequestMethod.GET, value = "/visits/available/by-specialty")
+    @GetMapping("/available/by-specialty")
     List<Visit> getAvailableBySpecialtyAndDate(@RequestParam("specialty") String specialty, @RequestParam("date") LocalDateTime date);
+
+    @PostMapping(value = "/{id}/reserve")
+    Visit reserveVisit(@PathVariable("id") Long id, @RequestParam("patientEmail") String patientEmail);
 }

@@ -13,8 +13,8 @@ import java.util.List;
 public class ProxyVisitService {
     private final VisitClient visitClient;
 
-    public List<Visit> getPatientsVisit(String email) {
-        return visitClient.getMyVisits(email);
+    public List<Visit> getVisitsByPatient(String email) {
+        return visitClient.getVisitsByPatient(email);
     }
 
     public List<Visit> getDoctorVisit(Long doctorId) {
@@ -23,5 +23,9 @@ public class ProxyVisitService {
 
     public List<Visit> getVisitsBySpecialtyAndDay(String specialty, LocalDateTime date) {
         return visitClient.getAvailableBySpecialtyAndDate(specialty, date);
+    }
+
+    public Visit reserveVisit(Long id, String patientEmail) {
+        return visitClient.reserveVisit(id, patientEmail);
     }
 }
