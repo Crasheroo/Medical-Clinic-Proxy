@@ -6,9 +6,9 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.data.domain.Pageable;
 
-@FeignClient(value = "medical-clinic-visits", url = "http://medicalclinic-app:8080/visits")
-public interface VisitClient {
-    @GetMapping
+@FeignClient(value = "medical-clinic", url = "http://medicalclinic-app:8080/", configuration = FeignConfig.class)
+public interface MedicalClinicClient {
+    @GetMapping("visits")
     PageableContentDTO<Visit> getVisits(
             @RequestParam(required = false) Long doctorId,
             @RequestParam(required = false) String specialty,
@@ -17,6 +17,6 @@ public interface VisitClient {
             @RequestParam(required = false) String patientEmail,
             Pageable pageable);
 
-    @PostMapping("/{id}/reserve")
+    @PostMapping("visits/{id}/reserve")
     Visit reserveVisit(@PathVariable("id") Long id, @RequestParam("patientEmail") String patientEmail);
 }
