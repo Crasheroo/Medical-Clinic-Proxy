@@ -1,5 +1,6 @@
 services:
   medical-clinic-proxy:
+    container_name: medical-clinic-proxy
     build: .
     ports:
       - "8081:8081"
@@ -14,6 +15,7 @@ services:
       - medicalclinic-net
 
   db:
+    container_name: medical-clinic-proxy-db
     image: postgres
     environment:
       POSTGRES_DB: medical_clinic
@@ -31,4 +33,3 @@ volumes:
 
 networks:
   medicalclinic-net:
-    external: true
