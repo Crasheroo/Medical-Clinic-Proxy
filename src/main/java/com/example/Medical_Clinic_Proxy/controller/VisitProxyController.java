@@ -5,8 +5,11 @@ import com.example.Medical_Clinic_Proxy.dto.Visit;
 import com.example.Medical_Clinic_Proxy.dto.VisitFilterDTO;
 import com.example.Medical_Clinic_Proxy.service.ProxyVisitService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cloud.openfeign.SpringQueryMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.data.domain.Pageable;
+
+import java.time.LocalDate;
 
 @RequiredArgsConstructor
 @RestController
@@ -15,11 +18,11 @@ public class VisitProxyController {
     private final ProxyVisitService proxyVisitService;
 
     @GetMapping
-    public PageableContentDTO<Visit> getVisits(VisitFilterDTO filter, Pageable pageable) {
+    public PageableContentDTO<Visit> getVisits(@SpringQueryMap VisitFilterDTO filter, Pageable pageable) {
         return proxyVisitService.getVisits(filter, pageable);
     }
 
-    @PostMapping("/{id}/reserve")
+    @PatchMapping("/{id}/reserve")
     public Visit reserveVisit(@PathVariable Long id, @RequestParam String patientEmail) {
         return proxyVisitService.reserveVisit(id, patientEmail);
     }
