@@ -10,7 +10,7 @@ import org.springframework.data.domain.Pageable;
 
 import java.time.LocalDate;
 
-@FeignClient(value = "medical-clinic", url = "http://app:8080/", configuration = FeignConfig.class)
+@FeignClient(value = "medical-clinic", url = "${medical-clinic.url}", configuration = FeignConfig.class)
 public interface MedicalClinicClient {
     @GetMapping("visits")
     PageableContentDTO<Visit> getVisits(@SpringQueryMap VisitFilterDTO filter, Pageable pageable);
