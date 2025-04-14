@@ -13,8 +13,8 @@ import java.time.LocalDate;
 public class VisitFilterDTO {
     private Long doctorId;
     private String specialty;
-    private LocalDate date;
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    private LocalDate date;
     private boolean onlyAvailable;
     private String patientEmail;
 }

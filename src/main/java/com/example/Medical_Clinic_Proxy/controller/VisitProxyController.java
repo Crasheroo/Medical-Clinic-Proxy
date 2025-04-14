@@ -24,7 +24,7 @@ public class VisitProxyController {
         return proxyVisitService.reserveVisit(id, patientEmail);
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     public void cancelVisit(@PathVariable Long id, @RequestParam String patientEmail) {
         proxyVisitService.cancelVisit(id, patientEmail);
     }

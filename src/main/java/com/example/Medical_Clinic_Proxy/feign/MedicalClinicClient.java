@@ -7,7 +7,7 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.data.domain.Pageable;
 
-@FeignClient(value = "medical-clinic", url = "http://medicalclinic-app:8080/", configuration = FeignConfig.class)
+@FeignClient(value = "medical-clinic", url = "http://app:8080/", configuration = FeignConfig.class)
 public interface MedicalClinicClient {
     @GetMapping("visits")
     PageableContentDTO<Visit> getVisits(VisitFilterDTO filter, Pageable pageable);
