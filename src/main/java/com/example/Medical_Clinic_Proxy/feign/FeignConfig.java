@@ -18,7 +18,7 @@ public class FeignConfig {
     public ErrorDecoder feignErrorDecoder() {
         return (methodKey, response) -> {
             FeignException exception = FeignException.errorStatus(methodKey, response);
-            boolean serviceUnavailable = response.status() == 503;
+            boolean serviceUnavailable = response.status() == 500;
             return serviceUnavailable
                     ? new RetryableException(response.status(), exception.getMessage(), response.request().httpMethod(), exception, (Long) null, response.request())
                     : exception;
