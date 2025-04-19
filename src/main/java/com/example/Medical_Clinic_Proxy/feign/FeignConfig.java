@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 public class FeignConfig {
     @Bean
     public Retryer feignRetryer() {
-        return new Retryer.Default();
+        return new Retryer.Default(1000, 5000, 3);
     }
 
     @Bean
