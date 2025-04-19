@@ -22,9 +22,9 @@ public interface MedicalClinicClient {
     @PatchMapping("visits/{id}/reserve")
     Visit reserveVisit(@PathVariable("id") Long id, @RequestParam("patientEmail") String patientEmail);
 
-    @DeleteMapping("cancel/{id}")
+    @DeleteMapping("visits/cancel/{id}")
     void cancelVisit(@PathVariable Long id, @RequestParam("doctorEmail") String doctorEmail);
 
-    @GetMapping("/visits/validate")
+    @GetMapping("visits/validate")
     VisitSessionValidatorResponse validateSession(@RequestParam UUID sessionId);
 }
