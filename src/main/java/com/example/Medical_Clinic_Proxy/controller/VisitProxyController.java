@@ -44,7 +44,7 @@ public class VisitProxyController {
                             schema = @Schema(implementation = Visit.class))}),
             @ApiResponse(responseCode = "404", description = "patients not found")
     })
-    @PatchMapping("/{id}/reserve")
+    @PostMapping("/{id}/reserve")
     public Visit reserveVisit(@PathVariable Long id, @RequestParam String patientEmail) {
         log.info("Attempting to reserve visit with id: {} and patient email: {}", id, patientEmail);
         Visit visit = proxyVisitService.reserveVisit(id, patientEmail);
