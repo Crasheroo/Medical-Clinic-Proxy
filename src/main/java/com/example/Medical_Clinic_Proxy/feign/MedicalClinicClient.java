@@ -8,9 +8,7 @@ import org.springframework.cloud.openfeign.SpringQueryMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.data.domain.Pageable;
 
-@FeignClient(value = "medical-clinic", url = "${medical-clinic.url}", configuration = FeignConfig.class,
-//        fallback = MedicalClinicClientFallback.class)
-        fallback = MedicalClinicClientFallbackFactory.class)
+@FeignClient(value = "medical-clinic", url = "${medical-clinic.url}", configuration = FeignConfig.class, fallback = MedicalClinicClientFallback.class)
 public interface MedicalClinicClient {
     @GetMapping("visits")
     PageableContentDTO<Visit> getVisits(@SpringQueryMap VisitFilterDTO filter, Pageable pageable);

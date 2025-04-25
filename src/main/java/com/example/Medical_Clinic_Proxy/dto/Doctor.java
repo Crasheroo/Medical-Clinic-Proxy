@@ -1,9 +1,11 @@
 package com.example.Medical_Clinic_Proxy.dto;
 
+import lombok.Builder;
 import lombok.Data;
 
 import java.util.List;
 
+@Builder
 @Data
 public class Doctor {
     private Long id;
