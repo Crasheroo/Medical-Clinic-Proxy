@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>Mecial-Clinic-Proxy</artifactId>
+	<artifactId>Medical-Clinic-Proxy</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Mecial-Clinic-Proxy</name>
-	<description>Mecial Clinic Proxy</description>
+	<name>Medical-Clinic-Proxy</name>
+	<description>Medical Clinic Proxy</description>
 	<url/>
 	<licenses>
 		<license/>
@@ -39,7 +39,10 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-openfeign</artifactId>
 		</dependency>
-
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-jpa</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-docker-compose</artifactId>
@@ -55,6 +58,27 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+			<version>2.8.5</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-circuitbreaker-resilience4j</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.github.tomakehurst</groupId>
+			<artifactId>wiremock</artifactId>
+			<version>3.0.1</version>
+			<type>pom</type>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-contract-wiremock</artifactId>
+			<version>4.2.0</version>
 		</dependency>
 	</dependencies>
 	<dependencyManagement>

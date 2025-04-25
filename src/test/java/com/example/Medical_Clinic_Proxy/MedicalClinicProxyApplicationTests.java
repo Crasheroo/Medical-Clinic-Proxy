@@ -1,10 +1,10 @@
-package com.example.Mecial_Clinic_Proxy;
+package com.example.Medical_Clinic_Proxy;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class MecialClinicProxyApplicationTests {
+class MedicalClinicProxyApplicationTests {
 
 	@Test
 	void contextLoads() {
